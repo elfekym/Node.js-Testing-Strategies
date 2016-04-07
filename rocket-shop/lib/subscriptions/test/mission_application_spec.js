@@ -1,20 +1,13 @@
 var assert = require('assert');
 var MembershipApplication = require('../models/membership_application');
-var moment = require('moment');
+var Helpers = require('./helpers');
 
 describe('Applying for mission', function() {
     var validApp;
     
     before(function() {
         //arrange the data here
-        validApp = new MembershipApplication({
-            first: 'Test',
-            last: 'User',
-            email: 'test@test.com',
-            age: 30,
-            height: 66,
-            weight: 180
-        });
+        validApp = Helpers.validApplication;
     })
     
     

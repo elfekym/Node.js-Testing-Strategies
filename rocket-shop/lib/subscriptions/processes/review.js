@@ -1,9 +1,14 @@
 var async = require('async');
 var assert = require('assert');
+var MissionControl = require('../models/mission_control');
 
 var ReviewProcess = function(args) {
     assert(args.application, 'Need an application to review');
+    assert(args.db, 'Need a database instance');
     var app = args.application;
+    var missionControl = new MissionControl({
+        db: args.db
+    });
     
     //make sure the app is valid
     this.ensureAppValid = function(next) {
